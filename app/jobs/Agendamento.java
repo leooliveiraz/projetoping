@@ -17,6 +17,10 @@ public class Agendamento {
 			pingEmpregosMogiTeste.setName("pingEmpregosMogiTeste");
 			pingEmpregosMogiTeste.setJobClass(PingEmpregosMogiTeste.class);
 
+			JobDetailImpl pingEmpregosMogi = new JobDetailImpl();
+			pingEmpregosMogi.setName("pingEmpregosMogi");
+			pingEmpregosMogi.setJobClass(PingEmpregosMogi.class);
+
 
 
 			// Creating schedule time with trigger
@@ -25,12 +29,20 @@ public class Agendamento {
 			triggerPingEmpregosMogiTeste.setRepeatInterval(240000);
 			triggerPingEmpregosMogiTeste.setRepeatCount(SimpleTrigger.REPEAT_INDEFINITELY);
 			triggerPingEmpregosMogiTeste.setName("pingEmpregosMogiTeste");
+			
+
+			SimpleTriggerImpl triggerPingEmpregosMogi = new SimpleTriggerImpl();
+			triggerPingEmpregosMogi.setStartTime(new Date(System.currentTimeMillis() + 1000));
+			triggerPingEmpregosMogi.setRepeatInterval(240000);
+			triggerPingEmpregosMogi.setRepeatCount(SimpleTrigger.REPEAT_INDEFINITELY);
+			triggerPingEmpregosMogi.setName("pingEmpregosMogi");
 
 
 			try {
 				org.quartz.Scheduler schedulerMain = new StdSchedulerFactory().getScheduler();
 				schedulerMain.start();
 				schedulerMain.scheduleJob(pingEmpregosMogiTeste,triggerPingEmpregosMogiTeste);
+				schedulerMain.scheduleJob(pingEmpregosMogi,triggerPingEmpregosMogi);
 			} catch (ObjectAlreadyExistsException e) {
 				System.out.println("Já existe o JOB: "+e.getMessage());
 			}
