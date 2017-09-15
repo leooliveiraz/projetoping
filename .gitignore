@@ -15,3 +15,7 @@ server.pid
 /dist/
 .cache
 /.target/
+
+\.classpath
+
+\.settings/

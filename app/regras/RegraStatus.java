@@ -56,8 +56,6 @@ public class RegraStatus {
            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
            connection.setRequestMethod("GET");
            connection.setConnectTimeout(15000);
-           connection.setRequestProperty("login", "teste");
-           connection.setRequestProperty("senha", "teste");
            connection.connect();
 
            String responseJson = RegraStatus.inputStreamToString((connection.getInputStream()));
