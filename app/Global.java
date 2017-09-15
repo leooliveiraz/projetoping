@@ -13,6 +13,7 @@ import static play.mvc.Results.badRequest;;
 
 public class Global extends GlobalSettings {
 	public void onStart(play.Application application) {
-		Agendamento.callMultipleScheduler();		
+		System.out.println("hey");
+		//Agendamento.callMultipleScheduler();		
 	}
 }
