@@ -2,6 +2,8 @@ package models;
 
 import java.util.Date;
 
+import util.UtilDate;
+
 public class StatusPing {
 	private String descricao;
 	private Date data;
@@ -13,6 +15,9 @@ public class StatusPing {
 	}
 	public Date getData() {
 		return data;
+	}
+	public String getDataString() {
+		return UtilDate.converteDateParaStringHora(getData());
 	}
 	public void setData(Date data) {
 		this.data = data;
@@ -48,7 +53,7 @@ public class StatusPing {
 	}
 	@Override
 	public String toString() {
-		return "Status [descricao=" + descricao + ", data=" + data + "]";
+		return "Status [descricao=" + descricao + ", data=" + getDataString() + "]";
 	}
 	public StatusPing() {
 		setDescricao("OK");

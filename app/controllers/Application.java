@@ -1,8 +1,7 @@
 package controllers;
 
-import play.*;
 import play.mvc.*;
-
+import regras.RegraStatus;
 import views.html.*;
 
 public class Application extends Controller {
@@ -11,7 +10,7 @@ public class Application extends Controller {
         return ok(index.render("Your new application is ready."));
     }
     public static Result inicio() {
-        return ok(inicio.render());
+        return ok(inicio.render(RegraStatus.getListaPingsRecebidos()));
     }
 
 }

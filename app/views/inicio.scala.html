@@ -1,11 +1,31 @@
+@(pings : List[StatusPing])
 <html>
-	<head>
-		<title>Projeto ping</title>
-	</head>
-	<body>
-		<h1>PROJETO PING</h1>
-		<h2>Olá esse é o projeto PING para verificar se as coisas estão funcionando.</h2>
-		<h3>Feito por Leonardo Rocha</h3>
-		<h4>Versão 0.0.1</h4>
-	</body>
+<head>
+<title>Projeto ping</title>
+</head>
+<body>
+	<h1>PROJETO PING</h1>
+	<h2>Olá esse é o projeto PING para verificar se as coisas estão
+		funcionando.</h2>
+	<h3>Feito por Leonardo Rocha</h3>
+	<h4>Versão 0.0.2</h4>
+</body>
+
+<table>
+	<thead>
+		<tr>
+			<th>STATUS</th>
+			<th>DATA</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for(ping <- pings){
+		<tr>
+			<td>@ping.getDescricao()</td>
+			<td>@ping.getDataString()</td>
+		</tr>
+
+		}
+	</tbody>
+</table>
 </html>
