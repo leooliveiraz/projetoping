@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/projetoping -Dhttp.port=${PORT}
+web: target/universal/stage/bin/projetoping -Dhttp.port=${PORT} -Duser.Timezone=America/Sao_Paulo
