@@ -3,7 +3,9 @@ package util;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class UtilDate {	
 	
@@ -41,7 +43,7 @@ public class UtilDate {
 			if (data == null)
 				return "";
 			DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-			String data_convertida = df.format(data);
+			String data_convertida = df.format(converteParaTimeZoneAmericaSP(data));
 			return  data_convertida;
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -49,5 +51,13 @@ public class UtilDate {
 		}
 	}
 	
+	public static Date converteParaTimeZoneAmericaSP(Date data){
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(data);
+		TimeZone tz = TimeZone.getTimeZone("Brazil/East");
+		TimeZone.setDefault(tz);
+		calendar.setTimeZone(tz);
+		return calendar.getTime();
+	}
 	
 }
