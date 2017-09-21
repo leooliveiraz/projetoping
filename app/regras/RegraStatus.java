@@ -75,6 +75,8 @@ public class RegraStatus {
 
         } catch (Exception e) {
         	objetoRetorno = new StatusPing("ERRO: "+path, new Date());
+            System.out.println("ERRO: "+path +" "+new Date());
+            e.printStackTrace();
             listaPings.add(objetoRetorno);
     		
         }
