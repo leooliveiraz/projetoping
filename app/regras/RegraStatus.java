@@ -57,16 +57,16 @@ public class RegraStatus {
         
         try {
            
-  		
+        	System.out.println(1);
            URL url = new URL(urlWebService);
            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+           connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
            connection.setRequestMethod("GET");
-           connection.setConnectTimeout(15000);
+           connection.setConnectTimeout(150000);
            connection.connect();
-
            String responseJson = RegraStatus.inputStreamToString((connection.getInputStream()));
            connection.disconnect();
-  		
+
            objetoRetorno = RegraStatus.converteParaObjeto(responseJson);
            objetoRetorno.setDescricao(objetoRetorno.getDescricao()+": "+path);
            listaPings.add(objetoRetorno);
